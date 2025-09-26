@@ -34,6 +34,7 @@ services:
       - CSRF_COOKIE_SECURE=${CSRF_COOKIE_SECURE:-false}
       - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-}
     volumes:
+      - static_volume:/app/staticfiles
       - media_volume:/app/media
     depends_on:
       db:
@@ -48,4 +49,5 @@ services:
 
 volumes:
   postgres_data:
+  static_volume:
   media_volume:

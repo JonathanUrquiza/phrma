@@ -33,6 +33,7 @@ services:
       - DJANGO_SUPERUSER_PASSWORD=admin123
     volumes:
       - .:/app
+      - static_volume:/app/staticfiles
       - media_volume:/app/media
     depends_on:
       db:
@@ -41,4 +42,5 @@ services:
 
 volumes:
   postgres_data:
+  static_volume:
   media_volume:
