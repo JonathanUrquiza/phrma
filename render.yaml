@@ -15,8 +15,6 @@ services:
         fromDatabase:
           name: pharma-db
           property: connectionString
-      - key: DJANGO_LOG_LEVEL
-        value: INFO
     disk:
       name: pharma-disk
       mountPath: /app/media

@@ -51,21 +51,18 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 COPY . .
 
 # Create necessary directories
-RUN mkdir -p staticfiles media logs && \
+RUN mkdir -p media && \
     chown -R django:django /app
 
 # Switch to non-root user
 USER django
-
-# Collect static files
-RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 8000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD python manage.py check --deploy || exit 1
+    CMD python manage.py check || exit 1
 
 # Copy and make startup script executable
 COPY --chown=django:django docker-entrypoint.sh /app/

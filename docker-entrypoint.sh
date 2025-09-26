@@ -31,9 +31,7 @@ else:
 " || echo -e "${YELLOW}⚠️ Superuser creation skipped${NC}"
 fi
 
-# Collect static files (in case they weren't collected during build)
-echo -e "${YELLOW}📦 Collecting static files...${NC}"
-python manage.py collectstatic --noinput --clear
+# Static files not needed - Frontend handles all UI
 
 echo -e "${GREEN}✅ Django application is ready!${NC}"
 
